@@ -17,7 +17,7 @@ class SubtractCommandTest extends TestCase
         $number1 = $this->faker->randomFloat();
         $number2 = $this->faker->randomFloat();
         $addCommand = new SubtractCommand();
-        $expected = $number1 + $number2;
+        $expected = $number1 - $number2;
         $this->assertEquals($expected, $addCommand->calculate($number1,$number2));
     }
 
@@ -26,7 +26,7 @@ class SubtractCommandTest extends TestCase
         $number1 = $this->faker->randomFloat();
         $number2 = $this->faker->randomFloat();
         $addCommand = new SubtractCommand();
-        $expected = $number1 + 0.05;
+        $expected = $number1 - 0.05;
         $this->assertNotEquals($expected, $addCommand->calculate($number1,$number2));
     }
 }
