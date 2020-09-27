@@ -52,10 +52,21 @@ class CommandHistoryRepository implements CommandHistoryManagerInterface
      */
     public function clearAll(): bool
     {
-        // TODO: Implement clearAll() method.
+        $truncate_db = History::query()->truncate();
+        if($truncate_db) {
+            try {
+                $cleared = json_encode([]);
+                if(file_put_contents($this->file, $cleared)) {
+                    return true;
+                }
+            } catch (\Exception $e) {
+                return false;
+            }
+        }
+        return false;
     }
 
-    private function driverDatabase($columns, $command)
+    protected function driverDatabase($columns, $command)
     {
         $histories = History::query();
         $histories->select($columns);
@@ -67,7 +78,6 @@ class CommandHistoryRepository implements CommandHistoryManagerInterface
             return array_merge(["no" => ($key + 1)], $item);
         })->all();
     }
-
 
     protected function driverFile($columns, $commands)
     {
