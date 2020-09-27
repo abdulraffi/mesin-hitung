@@ -26,6 +26,7 @@
     "prefer-stable": true,
     "require-dev": {
         "fzaninotto/faker": "^1.9",
-        "phpunit/phpunit": "9.0"
+        "phpunit/phpunit": "9.0",
+        "robmorgan/phinx": "^0.12.4"
     }
 }

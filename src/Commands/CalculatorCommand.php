@@ -3,6 +3,7 @@
 namespace Jakmall\Recruitment\Calculator\Commands;
 
 use Illuminate\Console\Command;
+use Jakmall\Recruitment\Calculator\History\Infrastructure\CommandHistoryManagerInterface;
 
 abstract class CalculatorCommand extends Command
 {
@@ -46,12 +47,19 @@ abstract class CalculatorCommand extends Command
         parent::__construct();
     }
 
-    public function handle(): void
+    public function handle(CommandHistoryManagerInterface $historyManager): void
     {
         $numbers = $this->getInput();
         $description = $this->generateCalculationDescription($numbers);
         $result = $this->calculateAll($numbers);
         $output = sprintf('%s = %s', $description, $result);
+
+        $historyManager->log([
+            'command' => ucfirst($this->commandVerb),
+            'description' => $description,
+            'result' => $result,
+            'output' => $output
+        ]);
 
         $this->comment($output);
     }

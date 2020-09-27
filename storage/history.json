@@ -1,0 +1,33 @@
+[
+    {
+        "command": "Pow",
+        "description": "5 ^ 5",
+        "result": 3125,
+        "output": "5 ^ 5 = 3125",
+        "created": "2020-09-26 23:35:13",
+        "id": 1
+    },
+    {
+        "command": "Add",
+        "description": "5 + 4",
+        "result": 9,
+        "output": "5 + 4 = 9",
+        "id": 1
+    },
+    {
+        "command": "Add",
+        "description": "5 + 2",
+        "result": 7,
+        "output": "5 + 2 = 7",
+        "id": 2
+    },
+    {
+        "command": "Add",
+        "description": "5 + 2",
+        "result": 7,
+        "output": "5 + 2 = 7",
+        "updated_at": "2020-09-27 18:03:34",
+        "created_at": "2020-09-27 18:03:34",
+        "id": 1
+    }
+]
