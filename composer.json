@@ -8,6 +8,7 @@
         "php": ">=7.3.4",
         "illuminate/console": "5.8.*",
         "illuminate/container": "5.8.*",
+        "illuminate/database": "~5.8",
         "illuminate/events": "5.8.*",
         "illuminate/http": "5.8.*",
         "illuminate/routing": "5.8.*",
@@ -24,5 +25,10 @@
         "optimize-autoloader": true
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "require-dev": {
+        "fzaninotto/faker": "^1.9",
+        "phpunit/phpunit": "9.0",
+        "robmorgan/phinx": "^0.12.4"
+    }
 }

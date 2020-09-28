@@ -8,9 +8,12 @@ interface CommandHistoryManagerInterface
     /**
      * Returns array of command history.
      *
+     * @param mixed $command The command to log.
+     * @param string $driver Driver storage
+     *
      * @return array
      */
-    public function findAll(): array;
+    public function findAll($command, string $driver): array;
 
     /**
      * Log command data to storage.
