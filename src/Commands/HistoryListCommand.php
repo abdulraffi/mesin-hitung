@@ -31,7 +31,7 @@ class HistoryListCommand extends Command
         $commands = $this->argument('commands');
         $driver = $this->option('driver');
 
-        $history = $historyManager->findAll($driver, $commands);
+        $history = $historyManager->findAll($commands, $driver);
         if(!empty($history)) {
             $headers = ['No', 'Command', 'Description', 'Result', 'Output', 'Time'];
             $this->table($headers, $history);

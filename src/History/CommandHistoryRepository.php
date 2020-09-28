@@ -22,13 +22,13 @@ class CommandHistoryRepository implements CommandHistoryManagerInterface
     /**
      * @inheritDoc
      */
-    public function findAll($driver, $command): array
+    public function findAll($command, $driver): array
     {
         $columns = ['command', 'description', 'result', 'output', 'created_at'];
         if($driver == "database") {
-            return $this->driverDatabase($columns, $command);
+            return $this->driverDatabase($command, $columns);
         } else {
-            return $this->driverFile($columns, $command);
+            return $this->driverFile($command, $columns);
         }
 
     }
@@ -66,7 +66,7 @@ class CommandHistoryRepository implements CommandHistoryManagerInterface
         return false;
     }
 
-    protected function driverDatabase($columns, $command)
+    protected function driverDatabase($command, $columns)
     {
         $histories = History::query();
         $histories->select($columns);
@@ -79,7 +79,7 @@ class CommandHistoryRepository implements CommandHistoryManagerInterface
         })->all();
     }
 
-    protected function driverFile($columns, $commands)
+    protected function driverFile($commands, $columns)
     {
         try {
             $historiesFile = file_get_contents($this->file);
