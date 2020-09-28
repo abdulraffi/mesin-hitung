@@ -30,4 +30,23 @@ interface CommandHistoryManagerInterface
      * @return bool Returns true if all data is cleared successfully, false otherwise.
      */
     public function clearAll():bool;
+
+    /**
+     * Returns array of command history.
+     *
+     * @param string $driver Driver storage
+     *
+     * @return array
+     */
+    public function findAllApi($driver);
+
+    /**
+     * Returns array of command history.
+     *
+     * @param mixed $id The Id in History.
+     * @param string $driver Driver storage
+     *
+     * @return array
+     */
+    public function getHistoryById($id, $driver);
 }
