@@ -11,3 +11,8 @@
 ```
 ./calculator
 ```
+
+## Run the API
+```
+./server
+```
